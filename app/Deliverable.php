@@ -14,4 +14,9 @@ class Deliverable extends Model
         'due_date',
         'status '
     ];
+
+    public function getTasks()
+    {
+        return $this->hasMany('app\Tasks', 'deliverable_id', 'id');
+    }
 }
