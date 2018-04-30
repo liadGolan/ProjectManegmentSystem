@@ -4,24 +4,22 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ActionItem extends Model
+class Issue extends Model
 {
-    protected $table = 'action_items';
+    protected $table = 'issues';
 
     protected $fillable = [
         'name',
         'title',
         'description',
-        'resource_id',
-        'date_created',
+        'task_id',
+        'action_item_id',
+        'priority',
+        'severity',
+        'date_raised',
         'date_assigned',
         'expected_completion_date',
         'status',
         'status_description'
     ];
-
-    public function getIssuesAssignedToActionItem()
-    {
-        return $this->hasMany('app\Issue', 'action_item_id', 'id');
-    }
 }

@@ -18,4 +18,9 @@ class Task extends Model
         'actual_start_date',
         'actual_end_date'
     ];
+
+    public function getIssuesAssignedToTask()
+    {
+        return $this->hasMany('app\Issue', 'task_id', 'id');
+    }
 }
