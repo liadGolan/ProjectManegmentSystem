@@ -15,6 +15,11 @@ class Resource extends Model
 
     public function getTasksAssignedToResource()
     {
-        return $this->hasMany('app\Tasks', 'resource_id', 'id');
+        return $this->hasMany('app\Task', 'resource_id', 'id');
+    }
+
+    public function getActionItemsAssignedToResource()
+    {
+        return $this->hasMany('app\ActionItem', 'resource_id', 'id');
     }
 }
