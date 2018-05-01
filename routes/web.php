@@ -14,5 +14,6 @@
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/createDeliverable', 'DeliverableController@index');
-
 Route::post('createDeliverable', 'DeliverableController@createDeliverable');
+
+Route::get('/createTask', 'TaskController@index');
