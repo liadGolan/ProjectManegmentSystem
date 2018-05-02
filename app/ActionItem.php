@@ -10,7 +10,6 @@ class ActionItem extends Model
 
     protected $fillable = [
         'name',
-        'title',
         'description',
         'resource_id',
         'date_created',

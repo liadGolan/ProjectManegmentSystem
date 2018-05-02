@@ -21,3 +21,5 @@ Route::post('/createTask', 'TaskController@createTask');
 
 Route::get('/createResource', 'ResourceController@index');
 Route::post('/createResource', 'ResourceController@createResource');
+
+Route::get('/createActionItem', 'ActionItemController@index');
