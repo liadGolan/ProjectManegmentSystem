@@ -19,12 +19,11 @@ class CreateActionItemsTable extends Migration
             $table->string('description');
             $table->string('resource_id');
             $table->date('date_created');
-            $table->date('date_assigned');
+            $table->date('date_assigned')->nullable();
             $table->date('expected_completion_date');
-            $table->date('actual_completion_date');
+            $table->date('actual_completion_date')->nullable();
             $table->string('status');
             $table->string('status_description');
-            $table->date('update_date');
             $table->timestamps();
         });
     }

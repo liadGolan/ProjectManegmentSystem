@@ -39,11 +39,6 @@
     {{Form::date('date_created', \Carbon\Carbon::now())}}
     <br />
     <br />
-    Date Assigned
-    <br />
-    {{Form::date('date_assigned',\Carbon\Carbon::now())}}
-    <br />
-    <br />
     Estimated Completion Date
     <br />
     {{Form::date('estimated_completion_date',\Carbon\Carbon::now())}}
