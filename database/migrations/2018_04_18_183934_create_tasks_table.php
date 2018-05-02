@@ -21,10 +21,10 @@ class CreateTasksTable extends Migration
             $table->string('description');
             $table->date('expected_start_date');
             $table->date('expected_end_date');
-            $table->time('expected_duration');
-            $table->date('actual_start_date');
-            $table->date('actual_end_date');
-            $table->time('actual_duration');
+            $table->integer('expected_duration_in_days');
+            $table->date('actual_start_date')->nullable();
+            $table->date('actual_end_date')->nullable();
+            $table->integer('actual_duration_in_days')->nullable();
             $table->timestamps();
         });
     }
