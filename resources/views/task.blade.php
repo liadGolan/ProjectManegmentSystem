@@ -2,6 +2,8 @@
 <html>
 <body>
     <h3>
+        <a href="/">Go Home</a>
+        <br />
         <a href="/createDeliverable">Create a new Deliverable</a>
         <br />
         <a href="/createTask">Create a new Task</a>
