@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Deliverable;
 use App\Task;
+use App\Resource;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -16,7 +17,11 @@ class TaskController extends Controller
         foreach($deliverables as $deliverable) {
             $deliverables_array[$deliverable->id] = $deliverable->name;
         }
-        $resource_array = [1 => "Jim"];
+        $resources = Resource::all();
+        $resource_array = [];
+        foreach($resources as $resource) {
+            $resource_array[$resource->id] = $resource->name;
+        }
         return view('task', compact('deliverables_array'), compact( 'resource_array'));
     }
 
