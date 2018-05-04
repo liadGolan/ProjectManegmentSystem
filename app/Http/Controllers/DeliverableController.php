@@ -12,6 +12,11 @@ class DeliverableController extends Controller
         return view('deliverable');
     }
 
+    public function view($id)
+    {
+        return $id;
+    }
+
     public function createDeliverable(Request $request)
     {
         $deliverable = new Deliverable();

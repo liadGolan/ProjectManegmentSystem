@@ -22,7 +22,7 @@
 
         <h2>
             @foreach($deliverables as $deliverable)
-                <ul>{{$deliverable->name}}</ul>
+                <ul><a href="/viewDeliverable/{{$deliverable->id}}">{{$deliverable->name}}</a></ul>
             @endforeach
         </h2>
     </body>
