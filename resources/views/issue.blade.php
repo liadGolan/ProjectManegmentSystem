@@ -48,7 +48,7 @@
         <br />
         Severity
         <br />
-        {{Form::text('priority')}}
+        {{Form::text('severity')}}
         <br />
         <br />
         Date Raised
