@@ -24,3 +24,6 @@ Route::post('/createResource', 'ResourceController@createResource');
 
 Route::get('/createActionItem', 'ActionItemController@index');
 Route::post('/createActionItem', 'ActionItemController@createActionItem');
+
+Route::get('/createIssue', 'IssueController@index');
+Route::post('/createIssue', 'IssueController@createIssue');

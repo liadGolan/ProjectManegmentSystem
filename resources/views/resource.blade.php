@@ -11,6 +11,8 @@
         <a href="/createResource">Create a new Resource</a>
         <br />
         <a href="/createActionItem">Create a new Action Item</a>
+        <br />
+        <a href="/createIssue">Create a new Issue</a>
     </h3>
 
     <h1>

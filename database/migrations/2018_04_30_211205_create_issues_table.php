@@ -17,17 +17,16 @@ class CreateIssuesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('description');
-            $table->string('task_id');
-            $table->string('action_item_id');
+            $table->string('task_id')->nullable();
+            $table->string('action_item_id')->nullable();
             $table->string('priority');
             $table->string('severity');
             $table->date('date_raised');
-            $table->date('date_assigned');
+            $table->date('date_assigned')->nullable();
             $table->date('expected_completion_date');
-            $table->date('actual_completion_date');
+            $table->date('actual_completion_date')->nullable();
             $table->string('status');
             $table->string('status_description');
-            $table->date('update_date');
             $table->timestamps();
         });
     }
