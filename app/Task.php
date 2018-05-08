@@ -21,6 +21,6 @@ class Task extends Model
 
     public function getIssuesAssignedToTask()
     {
-        return $this->hasMany('app\Issue', 'task_id', 'id');
+        return $this->hasMany('App\Issue', 'task_id', 'id');
     }
 }

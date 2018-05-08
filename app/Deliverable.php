@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use app\Task;
 
 class Deliverable extends Model
 {
@@ -17,6 +18,6 @@ class Deliverable extends Model
 
     public function getTasks()
     {
-        return $this->hasMany('app\Task', 'deliverable_id', 'id');
+        return $this->hasMany('App\Task', 'deliverable_id', 'id');
     }
 }

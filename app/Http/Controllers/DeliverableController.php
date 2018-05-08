@@ -14,7 +14,9 @@ class DeliverableController extends Controller
 
     public function view($id)
     {
-        return $id;
+        $deliverable = Deliverable::find($id);
+        $tasks = $deliverable->getTasks()->get();
+        return view('home', compact('id'), compact('tasks'));
     }
 
     public function createDeliverable(Request $request)

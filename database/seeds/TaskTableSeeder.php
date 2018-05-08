@@ -56,7 +56,7 @@ class TaskTableSeeder extends Seeder
 
 
         DB::table('tasks')->insert([
-            'name' => 'task_two',
+            'name' => 'task_five',
             'deliverable_id'=> 3,
             'resource_id'=>1,
             'description' => 'this is a task',
@@ -67,7 +67,7 @@ class TaskTableSeeder extends Seeder
 
 
         DB::table('tasks')->insert([
-            'name' => 'task_two',
+            'name' => 'task_six',
             'deliverable_id'=> 3,
             'resource_id'=>3,
             'description' => 'this is a task',
