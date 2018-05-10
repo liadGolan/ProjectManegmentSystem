@@ -17,13 +17,17 @@
 </h3>
 
 <h1>
-    Deliverable {{$id}}
+    Deliverable {{$data['id']}}
 </h1>
 
 <h2>
-    @foreach($tasks as $task)
-        <ul>{{$task->name}}</ul>
+    @foreach($data['tasks'] as $task)
+        <ul><a href="/viewDeliverable/{{$data['id']}}/task/{{$task->id}}/">{{$task->name}}</a></ul>
     @endforeach
+
+    @if($data['show'])
+        Hello
+    @endif
 </h2>
 </body>
 </html>

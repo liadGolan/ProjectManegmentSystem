@@ -29,3 +29,4 @@ Route::get('/createIssue', 'IssueController@index');
 Route::post('/createIssue', 'IssueController@createIssue');
 
 Route::get('/viewDeliverable/{id}', 'DeliverableController@view');
+Route::get('/viewDeliverable/{did}/task/{tid}', 'DeliverableController@viewTask');
