@@ -20,14 +20,33 @@
     Deliverable {{$data['id']}}
 </h1>
 
-<h2>
+<h3>
     @foreach($data['tasks'] as $task)
         <ul><a href="/viewDeliverable/{{$data['id']}}/task/{{$task->id}}/">{{$task->name}}</a></ul>
     @endforeach
+</h3>
+
 
     @if($data['show'])
-        Hello
+        <h2>
+            Task {{$data['taskId']}} Info
+        </h2>
+
+        <h4>
+            Resource Assigned: {{$data['resourceName']}}, {{$data['resourceTitle']}}
+            <br />
+            <br />
+            <br />
+            Issues, if any:
+            @foreach($data['issues'] as $issue)
+                <ul>
+                    {{$issue->name}}
+                    <br />
+                    {{$issue->description}}
+                </ul>
+            @endforeach
+        </h4>
     @endif
-</h2>
+
 </body>
 </html>
