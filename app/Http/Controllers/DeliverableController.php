@@ -41,7 +41,8 @@ class DeliverableController extends Controller
 
         $task = Task::find($tid);
         $resource = Resource::find($task->resource_id);
-        $issues = $task->getIssuesAssignedToTask();
+        $issues = $task->getIssuesAssignedToTask()->get();
+
         $data = [
             'id' => $did,
             'tasks' => $tasks,

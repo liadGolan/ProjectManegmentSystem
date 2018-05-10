@@ -33,12 +33,5 @@ class DeliverablesTableSeeder extends Seeder
             'due_date' => Carbon::createFromDate(2018, 5, 27),
             'status' => 'good'
         ]);
-
-        DB::table('deliverables')->insert([
-            'name' => 'deliverable_four',
-            'description' => 'this is the fourth deliverable',
-            'due_date' => Carbon::createFromDate(2018, 5, 27),
-            'status' => 'good'
-        ]);
     }
 }

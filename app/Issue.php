@@ -10,7 +10,6 @@ class Issue extends Model
 
     protected $fillable = [
         'name',
-        'title',
         'description',
         'task_id',
         'action_item_id',
