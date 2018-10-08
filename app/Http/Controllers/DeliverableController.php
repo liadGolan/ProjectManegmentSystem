@@ -2,13 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Resource;
-use App\Task;
+use App\Contracts\DeliverableContract;
 use Illuminate\Http\Request;
-use App\Deliverable;
 
 class DeliverableController extends Controller
 {
+
+    protected $deliverableTool;
+
+    public function __construct(DeliverableContract $deliverableContract)
+    {
+        $this->deliverableTool = $deliverableContract;
+    }
+
     public function index()
     {
         return view('deliverable');
@@ -16,57 +22,27 @@ class DeliverableController extends Controller
 
     public function view($id)
     {
-        $deliverable = Deliverable::find($id);
-        $tasks = $deliverable->getTasks()->get();
-        $show = false;
-        $taskId = null;
-        $data = [
-            'id' => $id,
-            'tasks' => $tasks,
-            'show' => $show,
-            'taskId' => $taskId,
-            'resourceName' => '',
-            'resourceTitle' => '',
-            'issues' => [],
-        ];
+        $data = $this->deliverableTool->getDataForViewingDeliverable($id);
         return view('home', compact('data'));
     }
 
     public function viewTask($did, $tid)
     {
-        $deliverable = Deliverable::find($did);
-        $tasks = $deliverable->getTasks()->get();
-        $show = true;
-        $taskId = $tid;
-
-        $task = Task::find($tid);
-        $resource = Resource::find($task->resource_id);
-        $issues = $task->getIssuesAssignedToTask()->get();
-
-        $data = [
-            'id' => $did,
-            'tasks' => $tasks,
-            'show' => $show,
-            'taskId' => $taskId,
-            'resourceName' => $resource->name,
-            'resourceTitle' => $resource->title,
-            'issues' => $issues
-        ];
+        $data = $this->deliverableTool->getDataForViewingTask($did, $tid);
         return view('home', compact('data'));
 
     }
 
     public function createDeliverable(Request $request)
     {
-        $deliverable = new Deliverable();
+        $data = [
+            'name' => $request->name,
+            'description' => $request->description,
+            'due_date' => $request->due_date,
+            'status' => $request->status
+        ];
 
-        $deliverable->name = $request->name;
-        $deliverable->description = $request->description;
-        $deliverable->due_date = $request->due_date;
-        $deliverable->status = $request->status;
-
-        $deliverable->save();
-
+        $this->deliverableTool->createNewDeliverable($data);
         return redirect()->route('home');
     }
 }
