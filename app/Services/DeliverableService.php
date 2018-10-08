@@ -61,5 +61,6 @@ class DeliverableService implements DeliverableContract
         $deliverable->status = $data['status'];
 
         $deliverable->save();
+
     }
 } 
