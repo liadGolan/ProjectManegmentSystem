@@ -7,41 +7,36 @@ use App\Task;
 use App\Resource;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Contract\TaskContract;
 
 class TaskController extends Controller
 {
+    protected $taskUtility;
+
+    public function __construct(TaskContract $taskUtility)
+    {
+        $this->taskUtility = $taskUtility;
+    }
     public function index()
     {
-        $deliverables = Deliverable::all();
-        $deliverables_array = [];
-        foreach($deliverables as $deliverable) {
-            $deliverables_array[$deliverable->id] = $deliverable->name;
-        }
-        $resources = Resource::all();
-        $resource_array = [];
-        foreach($resources as $resource) {
-            $resource_array[$resource->id] = $resource->name;
-        }
+        $data = $this->taskUtility->getAllDeliverablesAndResourcesForTaskCreationDropdown();
+        $deliverables_array = $data[0];
+        $resource_array = $data[1];
         return view('task', compact('deliverables_array'), compact( 'resource_array'));
     }
 
     public function createTask(Request $request)
     {
-        $task = new Task();
+        $data  = [
+            'name' => $request->name,
+            'description' => $request->description,
+            'deliverable' => $request->deliverable,
+            'resource' => $request->resource,
+            'expected_start_date' => $request->expected_start_date,
+            'expected_end_date' => $request->expected_end_date
+        ];
 
-        $task->name = $request->name;
-        $task->description = $request->description;
-        $task->deliverable_id = $request->deliverable;
-        $task->resource_id = $request->resource;
-        $task->expected_start_date = $request->expected_start_date;
-        $task->expected_end_date = $request->expected_end_date;
-        $format = "Y-m-d";
-        $expectedStart = Carbon::createFromFormat($format, $task->expected_start_date);
-        $expectedEnd = Carbon::createFromFormat($format, $task->expected_end_date);
-        $expectedDuration = $expectedStart->diffInDays($expectedEnd);
-        $task->expected_duration_in_days = $expectedDuration;
-
-        $task->save();
+        $this->taskUtility->createANewTask($data);
 
         return redirect()->route('home');
     }
