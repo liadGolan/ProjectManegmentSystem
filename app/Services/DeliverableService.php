@@ -9,7 +9,7 @@ use App\Contracts\DeliverableContract;
 
 class DeliverableService implements DeliverableContract
 {
-    public function getDataForViewingDeliverable($id)
+    public function getDataForViewingDeliverable($id): array
     {
         $deliverable = Deliverable::find($id);
         $tasks = $deliverable->getTasks()->get();
@@ -24,7 +24,6 @@ class DeliverableService implements DeliverableContract
             'resourceTitle' => '',
             'issues' => [],
         ];
-
         return $data;
     }
 

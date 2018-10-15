@@ -6,7 +6,7 @@ namespace App\Contracts;
 
 interface DeliverableContract
 {
-    public function getDataForViewingDeliverable($id);
+    public function getDataForViewingDeliverable($id): array;
 
     public function getDataForViewingTask($did, $tid): array;
 
