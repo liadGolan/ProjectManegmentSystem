@@ -69,7 +69,7 @@ class DeliverableControllerTest extends TestCase
             ->shouldReceive('getDataForViewingTask')
             ->andReturn($data);
 
-        $controller->view(0,0);
+        $controller->viewTask(0,0);
 
     }
 

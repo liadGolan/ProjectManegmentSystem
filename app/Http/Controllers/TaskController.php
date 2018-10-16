@@ -7,7 +7,7 @@ use App\Task;
 use App\Resource;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use App\Contract\TaskContract;
+use App\Contracts\TaskContract;
 
 class TaskController extends Controller
 {
