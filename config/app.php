@@ -161,6 +161,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Project Managment System Service Providers
+         */
+        App\Providers\DeliverableServiceProvider::class,
+        App\Providers\TaskServiceProvider::class,
+
     ],
 
     /*
