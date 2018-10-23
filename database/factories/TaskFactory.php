@@ -13,6 +13,6 @@ $factory->define(App\Task::class, function (Faker $faker) {
         'expected_end_date' => $faker->dateTimeThisMonth(),
         'actual_start_date' => $faker->dateTimeThisMonth(),
         'actual_end_date' => $faker->dateTimeThisMonth(),
-        'expected_duration_in_days' => 7
+        'expected_duration_in_days' => 7,
     ];
 });
