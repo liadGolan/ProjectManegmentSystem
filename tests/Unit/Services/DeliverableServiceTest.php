@@ -112,4 +112,22 @@ class DeliverableServiceTest extends TestCase
         $this->assertDatabaseHas('deliverables', $data);
 
     }
+
+    /** @test */
+    public function getAllDeliverables_gets_all_deliverables()
+    {
+        for($i = 1; $i <= 50; $i += 1) {
+            $this->generateDeliverable($i);
+            $this->assertEquals(count($this->service->getAllDeliverables()),$i);
+            for($j = 1; $j <= $i; $j += 1){
+                $this->assertEquals($this->service->getAllDeliverables()->toArray()[$j - 1]['id'], $j);
+            }
+        }
+    }
+
+    private function generateDeliverable($id) {
+        $deliverable = factory(Deliverable::class)->make([
+            'id' => $id,
+        ])->save();
+    }
 }

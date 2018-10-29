@@ -63,4 +63,9 @@ class DeliverableService implements DeliverableContract
         $deliverable->save();
 
     }
+
+    public function getAllDeliverables()
+    {
+        return Deliverable::all();
+    }
 } 

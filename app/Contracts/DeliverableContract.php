@@ -11,4 +11,6 @@ interface DeliverableContract
     public function getDataForViewingTask($did, $tid): array;
 
     public function createNewDeliverable(array $data);
+
+    public function getAllDeliverables();
 }
