@@ -71,31 +71,35 @@ class TaskServiceTest extends TestCase
     /** @test */
     public function createANewTask_creates_a_new_task()
     {
+
         $start = "2018-5-20";
         $end = "2018-5-27";
-        $data = [
-            'name' => 'task one',
-            'description' => 'a task',
-            'deliverable'  => 1,
-            'resource' => 1,
-            'expected_start_date' => $start,
-            'expected_end_date' => $end,
-            'expected_duration_in_days'=>7
-        ];
+        $db_data = [];
+        $this->assertDatabaseMissing('tasks', $db_data);
+        for($i = 1; $i <= 50; $i++) {
+            $data = [
+                'name' => 'task one',
+                'description' => 'a task',
+                'deliverable'  => 1,
+                'resource' => 1,
+                'expected_start_date' => $start,
+                'expected_end_date' => $end,
+                'expected_duration_in_days'=>7
+            ];
+            $db_data = [
+                'id' => $i,
+                'name' => 'task one',
+                'description' => 'a task',
+                'deliverable_id'  => 1,
+                'resource_id' => 1,
+                'expected_start_date' => $start,
+                'expected_end_date' => $end,
+                'expected_duration_in_days'=>7
+            ];
 
-        $db_data = [
-            'id' => 1,
-            'name' => 'task one',
-            'description' => 'a task',
-            'deliverable_id'  => 1,
-            'resource_id' => 1,
-            'expected_start_date' => $start,
-            'expected_end_date' => $end,
-            'expected_duration_in_days'=>7
-        ];
-
-        $this->service->createANewTask($data);
-
-        $this->assertDatabaseHas('tasks', $db_data);
+            $this->service->createANewTask($data);
+            $this->assertDatabaseHas('tasks', $db_data);
+        }
+        
     }
 }
