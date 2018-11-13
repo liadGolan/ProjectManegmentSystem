@@ -166,6 +166,7 @@ return [
          */
         App\Providers\DeliverableServiceProvider::class,
         App\Providers\TaskServiceProvider::class,
+        App\Providers\ResourceServiceProvider::class,
 
     ],
 
