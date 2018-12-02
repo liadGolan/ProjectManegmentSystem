@@ -34,31 +34,31 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="New Deliverable">
-          <a class="nav-link" href="/createDeliverable">
+          <a id="createDeliverable" class="nav-link" href="/createDeliverable">
             <i class="fa fa-fw fa-list-ul"></i>
             <span class="nav-link-text">New Deliverable</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="New Task">
-          <a class="nav-link" href="/createTask">
+          <a id="createTask" class="nav-link" href="/createTask">
             <i class="fa fa-fw fa-check-square"></i>
             <span class="nav-link-text">New Task</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="New Resource">
-          <a class="nav-link" href="/createResource">
+          <a id="createResource" class="nav-link" href="/createResource">
             <i class="fa fa-fw fa-user"></i>
             <span class="nav-link-text">New Resource</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="New Action Item">
-          <a class="nav-link" href="/createActionItem">
+          <a id="createActionItem" class="nav-link" href="/createActionItem">
             <i class="fa fa-fw fa-bolt"></i>
             <span class="nav-link-text">New Action Item</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="New Issue">
-          <a class="nav-link" href="/createIssue">
+          <a id="createIssue" class="nav-link" href="/createIssue">
             <i class="fa fa-fw fa-exclamation"></i>
             <span class="nav-link-text">New Issue</span>
           </a>
