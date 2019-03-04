@@ -151,6 +151,7 @@ return [
          * Package Service Providers...
          */
         Collective\Html\HtmlServiceProvider::class,
+        Qafeen\Manager\ManagerServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -166,6 +167,7 @@ return [
          */
         App\Providers\DeliverableServiceProvider::class,
         App\Providers\TaskServiceProvider::class,
+        App\Providers\ResourceServiceProvider::class,
 
     ],
 

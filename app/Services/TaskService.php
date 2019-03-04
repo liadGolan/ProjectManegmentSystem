@@ -6,10 +6,11 @@ use App\Contracts\TaskContract;
 use App\Deliverable;
 use App\Resource;
 use App\Task;
+use Carbon\Carbon;
 
 class TaskService implements TaskContract
 {
-    public function getAllDeliverablesAndResourcesForTaskCreationDropdown()
+    public function getAllDeliverablesAndResourcesForTaskCreationDropdown(): array
     {
         $deliverables = Deliverable::all();
         $deliverables_array = [];

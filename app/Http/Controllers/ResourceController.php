@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Resource;
 use Illuminate\Http\Request;
+use App\Contracts\ResourceContract;
 
 class ResourceController extends Controller
 {
+    protected $resourceUtility = null;
+
+    public function __construct(ResourceContract $resourceUtility)
+    {
+        $this->resourceUtility = $resourceUtility;
+    }
+
     public function index()
     {
         return view('resource');
@@ -14,13 +22,13 @@ class ResourceController extends Controller
 
     public function createResource(Request $request)
     {
-        $resource = new Resource();
+        $data = [
+            'name' => $request->name,
+            'title' => $request->title    
+        ];
 
-        $resource->name = $request->name;
-        $resource->title = $request->title;
-
-        $resource->save();
-
+        $this->resourceUtility->createNewResource($data);
+        
         return redirect()->route('home');
     }
 
